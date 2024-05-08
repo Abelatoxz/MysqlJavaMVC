@@ -21,7 +21,8 @@ public class Usuario {
         this.email = email;
         this.telefono = telefono;
         this.rol = rol;
-        this.fechaRegistro = new SimpleDateFormat("yyyy-MM-dd").format(fechaRegistro);    }
+        this.fechaRegistro = new SimpleDateFormat("yyyy-MM-dd").format(fechaRegistro);
+    }
 
 
     // Getters y setters

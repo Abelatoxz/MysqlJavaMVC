@@ -1,9 +1,10 @@
 package Controlador;
-
+//importamos los otros modelos
 import Modelo.Usuario;
 import Modelo.UsuarioModelo;
 import Vista.UsuarioVista;
 
+//importamos librerias utiles
 import java.sql.SQLException;
 import java.util.List;
 
@@ -34,5 +35,4 @@ public class UsuarioControlador {
         }
     }
 
-    // Otros métodos del controlador para manejar otras operaciones relacionadas con los usuarios, como agregar, actualizar, eliminar, etc.
 }
