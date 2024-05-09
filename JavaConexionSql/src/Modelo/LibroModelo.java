@@ -56,5 +56,84 @@ public class LibroModelo {
         }
 
     }
+    public void editarLibro(Libro libro) throws SQLException{
+
+
+        //Query para Editar libro
+        String query = "UPDATE Libros SET Titulo = ?, Autor = ?, ISBN = ?, Editorial = ?, Anio_Publicacion = ?, Categoria = ?, Estado = ? WHERE  ID_Libro = ?; ";
+
+        try(Connection conexion = Conexion.obtenerConexion();
+            PreparedStatement statement = conexion.prepareStatement(query)){
+            //Establecer los valores del libro en la consulta preparada
+            statement.setString(1, libro.getTitol());
+            statement.setString(2, libro.getAutor());
+            statement.setString(3, libro.getISBN());
+            statement.setString(4, libro.getEditorial());
+            statement.setString(5, libro.getFechaPublicacion());
+            statement.setString(6, libro.getCategoria());
+            statement.setString(7, libro.getEstado());
+            statement.setInt(8,libro.getId());
+
+            // Ejecutar la consulta al libro
+            statement.executeUpdate();
+        }
+    }
+
+
+
+
+
+    //Borrar libros, funcion acabada por parte del modelo queda la vista y el contrlador y probarlo
+    public void borrarLibro(int[] ID) throws SQLException {
+        try (Connection conexion = Conexion.obtenerConexion()) {
+            // Eliminar las entradas relacionadas en Reservas
+            String queryEliminarReservas = "DELETE FROM Reservas WHERE ID_Libro IN (" + generarPlaceholders(ID.length) + ")";
+            try (PreparedStatement statementReservas = conexion.prepareStatement(queryEliminarReservas)) {
+                for (int i = 0; i < ID.length; i++) {
+                    statementReservas.setInt(i + 1, ID[i]);
+                }
+                statementReservas.executeUpdate();
+            }
+
+            // Eliminar las entradas relacionadas en Prestamos
+            String queryEliminarPrestamos = "DELETE FROM Prestamos WHERE ID_Libro IN (" + generarPlaceholders(ID.length) + ")";
+            try (PreparedStatement statementPrestamos = conexion.prepareStatement(queryEliminarPrestamos)) {
+                for (int i = 0; i < ID.length; i++) {
+                    statementPrestamos.setInt(i + 1, ID[i]);
+                }
+                statementPrestamos.executeUpdate();
+            }
+
+            // Eliminar las entradas relacionadas en Lista_Espera
+            String queryEliminarListaEspera = "DELETE FROM Lista_Espera WHERE ID_Libro IN (" + generarPlaceholders(ID.length) + ")";
+            try (PreparedStatement statementListaEspera = conexion.prepareStatement(queryEliminarListaEspera)) {
+                for (int i = 0; i < ID.length; i++) {
+                    statementListaEspera.setInt(i + 1, ID[i]);
+                }
+                statementListaEspera.executeUpdate();
+            }
+
+            // Eliminar los libros de la tabla Libros
+            String queryEliminarLibros = "DELETE FROM Libros WHERE ID_Libro IN (" + generarPlaceholders(ID.length) + ")";
+            try (PreparedStatement statementLibros = conexion.prepareStatement(queryEliminarLibros)) {
+                for (int i = 0; i < ID.length; i++) {
+                    statementLibros.setInt(i + 1, ID[i]);
+                }
+                statementLibros.executeUpdate();
+            }
+        }
+    }
+
+    //Generar ? para peticiones sql
+    private String generarPlaceholders(int cantidad) {
+        StringBuilder placeholders = new StringBuilder();
+        for (int i = 0; i < cantidad; i++) {
+            placeholders.append("?");
+            if (i != cantidad - 1) {
+                placeholders.append(",");
+            }
+        }
+        return placeholders.toString();
+    }
 
 }

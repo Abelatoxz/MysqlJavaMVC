@@ -10,7 +10,7 @@ public class Main {
         // Crear instancias del modelo, la vista y el controlador del usuario
         UsuarioModelo usuarioModelo = new UsuarioModelo();
         UsuarioVista usuarioVista = new UsuarioVista();
-        UsuarioControlador usuarioControlador = new UsuarioControlador(usuarioModelo, usuarioVista);
+        // UsuarioControlador usuarioControlador = new UsuarioControlador(usuarioModelo, usuarioVista);
         // Crear instancias del modelo, la vista y el controlador del libro
 
         LibroModelo libroModelo = new LibroModelo();
@@ -20,6 +20,7 @@ public class Main {
        // usuarioControlador.mostrarUsuarios();
        // usuarioControlador.agregarUsuario();
         libroControlador.mostrarLibros();
-        libroControlador.agregarLibros();
+        //libroControlador.editarLibros();
+        libroControlador.eliminarLibros();
     }
 }

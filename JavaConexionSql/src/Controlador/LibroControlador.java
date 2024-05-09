@@ -20,6 +20,16 @@ public class LibroControlador {
         this.modelo = modelo;
         this.vista = vista;
     }
+    public void eliminarLibros() {
+        try {
+            int[] IDs = vista.obtenerIDsParaBorrar();
+            modelo.borrarLibro(IDs);
+            vista.mostrarMensaje("Libros eliminados correctamente.");
+        } catch (SQLException e) {
+            vista.mostrarMensajeError("Error al eliminar libros: " + e.getMessage());
+        }
+    }
+
     public void mostrarLibros() {
         try{
             List<Libro> libros = modelo.obtenerLibros();
@@ -33,6 +43,15 @@ public class LibroControlador {
         try{
             modelo.insertarLibro(nuevoLibro);
             vista.mostrarMensaje("Libro agregado correctamente");
+        }catch (SQLException e){
+            vista.mostrarMensajeError("Error al agregar el libro " + e.getMessage());
+        }
+    }
+    public void editarLibros() {
+        Libro editarLibro = vista.obtenerDatosEditarLibro();
+        try {
+            modelo.editarLibro(editarLibro);
+            vista.mostrarMensaje("Libro editado correctamente");
         }catch (SQLException e){
             vista.mostrarMensajeError("Error al agregar el libro " + e.getMessage());
         }
