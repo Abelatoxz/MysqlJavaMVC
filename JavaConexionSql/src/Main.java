@@ -4,6 +4,10 @@ import Vista.UsuarioVista;
 import Controlador.LibroControlador;
 import Modelo.LibroModelo;
 import Vista.LibroVista;
+import Vista.PrestamoVista;
+import Modelo.PrestamoModelo;
+import Modelo.Prestamo;
+import Controlador.PrestamoControlador;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,19 +20,13 @@ public class Main {
         LibroModelo libroModelo = new LibroModelo();
         LibroVista libroVista = new LibroVista();
         LibroControlador libroControlador = new LibroControlador(libroModelo,libroVista);
-        // Mostrar usuarios
 
-        //libroControlador.agregarLibros();
-        libroControlador.cambiarEstadoPrestado();
-        //libroControlador.editarLibros();
-        //libroControlador.eliminarLibros();
-       /* libroControlador.mostrarLibros();
-        libroControlador.cambiarEstadoReservado();
-        libroControlador.mostrarLibros();
-        libroControlador.cambiarEstadoPrestado();
-        libroControlador.mostrarLibros();
-        libroControlador.cambiarEstadoDiponible();
-        libroControlador.mostrarLibros();*/
+        //Crear instancias del modelo, la vista y el controlador de los prestamos
+        PrestamoModelo prestamoModelo = new PrestamoModelo();
+        PrestamoVista prestamoVista = new PrestamoVista();
+        PrestamoControlador prestamoControlador = new PrestamoControlador(prestamoModelo,prestamoVista);
+        // Mostrar usuarios
+        prestamoControlador.mostrarPrestamos();
 
     }
 }

@@ -5,13 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import Utilidad.Conexion;
 
-public class PrestamoUsuario {
+public class PrestamoModelo {
     public List<Prestamo> obtenerPrestamo() throws SQLException {
         List<Prestamo> prestamos = new ArrayList<>();
-        String query = "SELECT * FROM Usuarios";
+        Date fechaTMP = new Date(2012, 2, 2);
+
+        String query = "SELECT * FROM Prestamos";
         try (Connection conexion = Conexion.obtenerConexion();
              PreparedStatement statement = conexion.prepareStatement(query);
              ResultSet resultSet = statement.executeQuery()) {
@@ -22,7 +25,6 @@ public class PrestamoUsuario {
                         resultSet.getInt("ID_Usuario"),
                         resultSet.getDate("Fecha_Prestamo"),
                         resultSet.getDate("Fecha_Retorno_Prevista"),
-                        resultSet.getDate("Fecha_Retorno_Real"),
                         resultSet.getString("Estado")
                 );
                 prestamos.add(prestamo);

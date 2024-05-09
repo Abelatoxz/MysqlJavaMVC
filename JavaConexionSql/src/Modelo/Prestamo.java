@@ -10,15 +10,27 @@ public class Prestamo {
     private String fechaPrestamo;
     private String fechaPrestamoPrevista;
     private String fechaPrestamoReal;
-    Prestamo(int idPrestamo, int idLibro, int idUsuario, Date fechaPrestamo, Date fechaPrestamoPrevista,Date fechaPrestamoReal){
+    private String estado;
+
+    Prestamo(int idPrestamo, int idLibro, int idUsuario, Date fechaPrestamo, Date fechaPrestamoPrevista,Date fechaPrestamoReal, String estado){
         this.idPrestamo = idPrestamo;
         this.idLibro = idLibro;
         this.idUsuario = idUsuario;
         this.fechaPrestamo = new SimpleDateFormat("yyyy-MM-dd").format(fechaPrestamo);
         this.fechaPrestamoPrevista = new SimpleDateFormat("yyyy-MM-dd").format(fechaPrestamoPrevista);
         this.fechaPrestamoReal = new SimpleDateFormat("yyyy-MM-dd").format(fechaPrestamoReal);
+        this.estado = estado;
     }
-
+    //sobre carga ya que la fecha de prestamo prevista tiene nulls, y si intento contruir con eso, cagada.
+    Prestamo(int idPrestamo, int idLibro, int idUsuario, Date fechaPrestamo, Date fechaPrestamoPrevista, String estado){
+        this.idPrestamo = idPrestamo;
+        this.idLibro = idLibro;
+        this.idUsuario = idUsuario;
+        this.fechaPrestamo = new SimpleDateFormat("yyyy-MM-dd").format(fechaPrestamo);
+        this.fechaPrestamoPrevista = new SimpleDateFormat("yyyy-MM-dd").format(fechaPrestamoPrevista);
+        this.estado = estado;
+    }
+    //getters and setters
     public int getIdPrestamo() {
         return idPrestamo;
     }
@@ -63,7 +75,26 @@ public class Prestamo {
         return fechaPrestamoReal;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     public void setFechaPrestamoReal(String fechaPrestamoReal) {
         this.fechaPrestamoReal = fechaPrestamoReal;
+    }
+    @Override
+    public String toString(){
+        return  "Prestamo   {" +
+                "idPrestamo="+ idPrestamo +
+                ", idLibro="+ idLibro +
+                ", idUsuario= " + idUsuario +
+                ", fechaPrestamo= " + fechaPrestamo +
+                ", fechaRetornoPrevista=" + fechaPrestamoPrevista +
+                ", fechaRetornoReal=" + fechaPrestamoReal +
+                ", estado=" + estado +" }";
     }
 }
