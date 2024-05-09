@@ -34,9 +34,9 @@ public class UsuarioVista {
         String telefono = scanner.nextLine();
         System.out.print("Rol: ");
         String rol = scanner.nextLine();
-        System.out.println("Date: ");
-        System.out.print("Fecha de registro (yyyy-MM-dd): ");
-        String fechaRegistroStr = scanner.nextLine();
+       // System.out.println("Date: ");
+        // System.out.print("Fecha de registro (yyyy-MM-dd): ");
+        String fechaRegistroStr = "2004-04-04";
         Date fechaRegistro = null;
         try{
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -45,7 +45,7 @@ public class UsuarioVista {
             System.out.println("Error" + e.getMessage());
             fechaRegistro = new Date();
         }
-        return  new Usuario(0,nombre,apellido,email,telefono,rol,fechaRegistro);
+        return  new Usuario(0,nombre,apellido,email,telefono,rol,fechaRegistro,0);
     }
     public void mostrarMensajeError(String mensaje) {
         System.out.println("Error: " + mensaje);

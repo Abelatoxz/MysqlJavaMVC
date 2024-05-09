@@ -7,13 +7,35 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library" exported="" scope="RUNTIME">
       <library>
         <CLASSES>
           <root url="jar://$USER_HOME$/Downloads/mariadb-java-client-3.3.3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Baixades/mariadb-java-client-3.3.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$USER_HOME$/Baixades/mariadb-connector-j-3.3.3/src/benchmark/java" />
+          <root url="file://$USER_HOME$/Baixades/mariadb-connector-j-3.3.3/src/main/java" />
+          <root url="file://$USER_HOME$/Baixades/mariadb-connector-j-3.3.3/src/main/java11" />
+          <root url="file://$USER_HOME$/Baixades/mariadb-connector-j-3.3.3/src/main/java9" />
+          <root url="file://$USER_HOME$/Baixades/mariadb-connector-j-3.3.3/src/test/java" />
+        </SOURCES>
       </library>
     </orderEntry>
   </component>

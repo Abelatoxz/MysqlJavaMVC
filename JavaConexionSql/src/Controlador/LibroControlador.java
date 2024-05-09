@@ -30,6 +30,16 @@ public class LibroControlador {
         }
     }
 
+    public void cambiarEstadoPrestado() {
+        try {
+            int[] ID = vista.obtenerIdEstadoPrestado();
+            modelo.cambiarEstadoPrestado(ID);
+            vista.mostrarMensaje("El estado se ha actualizado correctamente");
+        } catch (SQLException e){
+            vista.mostrarMensajeError("Error al modificar estado: "+ e.getMessage());
+        }
+    }
+
     public void mostrarLibros() {
         try{
             List<Libro> libros = modelo.obtenerLibros();

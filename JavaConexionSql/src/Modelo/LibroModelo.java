@@ -78,6 +78,35 @@ public class LibroModelo {
             statement.executeUpdate();
         }
     }
+    public void cambiarEstadoDisponible(int id) throws SQLException {
+        String query = "UPDATE Libros SET Estado = 'Disponible' where ID_Libro = ? ";
+        try(Connection conexion = Conexion.obtenerConexion();
+        PreparedStatement statement = conexion.prepareStatement(query)){
+            statement.setInt(1,id);
+            statement.executeUpdate();
+        }
+    }
+
+    public void cambiarEstadoPrestado(int[] IDs) throws SQLException {
+        //Query insertar al prestamo
+        String queryPrestamo = "insert into Prestamos (ID_Libro,ID_Usuario) VALUES(?,?)";
+        try (Connection conexion = Conexion.obtenerConexion();
+             PreparedStatement statement = conexion.prepareStatement(queryPrestamo)){
+            statement.setInt(1,IDs[0]);
+            statement.setInt(2,IDs[1]);
+            statement.executeUpdate();
+        }
+
+
+
+        //query de actualizar estado
+        String query = "UPDATE Libros SET Estado = 'Prestado' where ID_Libro = ? ";
+        try(Connection conexion = Conexion.obtenerConexion();
+            PreparedStatement statement = conexion.prepareStatement(query)){
+            statement.setInt(1,IDs[0]);
+            statement.executeUpdate();
+        }
+    }
 
 
 

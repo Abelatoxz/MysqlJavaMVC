@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import Utilidad.Conexion;
 
+
 public class UsuarioModelo {
     public List<Usuario> obtenerUsuarios() throws SQLException {
         List<Usuario> usuarios = new ArrayList<>();
@@ -23,7 +24,8 @@ public class UsuarioModelo {
                         resultSet.getString("Email"),
                         resultSet.getString("Telefono"),
                         resultSet.getString("Rol"),
-                        resultSet.getDate("Fecha_Registro")
+                        resultSet.getDate("Fecha_Registro"),
+                        resultSet.getInt("Multas")
                 );
                 usuarios.add(usuario);
             }
@@ -33,7 +35,7 @@ public class UsuarioModelo {
     }
     public void insertarUsuario(Usuario usuario) throws SQLException {
         // Query para insertar un nuevo usuario
-        String query = "INSERT INTO Usuarios (Nombre, Apellidos, Email, Telefono, Rol, Fecha_Registro) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO Usuarios (Nombre, Apellidos, Email, Telefono, Rol) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection conexion = Conexion.obtenerConexion();
              PreparedStatement statement = conexion.prepareStatement(query)) {
@@ -44,7 +46,6 @@ public class UsuarioModelo {
             statement.setString(3, usuario.getEmail());
             statement.setString(4, usuario.getTelefono());
             statement.setString(5, usuario.getRol());
-            statement.setString(6, usuario.getFechaRegistro());
 
             // Ejecutar la consulta para insertar el usuario
             statement.executeUpdate();

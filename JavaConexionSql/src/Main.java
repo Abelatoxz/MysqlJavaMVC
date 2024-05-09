@@ -10,17 +10,25 @@ public class Main {
         // Crear instancias del modelo, la vista y el controlador del usuario
         UsuarioModelo usuarioModelo = new UsuarioModelo();
         UsuarioVista usuarioVista = new UsuarioVista();
-        // UsuarioControlador usuarioControlador = new UsuarioControlador(usuarioModelo, usuarioVista);
+         UsuarioControlador usuarioControlador = new UsuarioControlador(usuarioModelo, usuarioVista);
         // Crear instancias del modelo, la vista y el controlador del libro
 
         LibroModelo libroModelo = new LibroModelo();
         LibroVista libroVista = new LibroVista();
         LibroControlador libroControlador = new LibroControlador(libroModelo,libroVista);
         // Mostrar usuarios
-       // usuarioControlador.mostrarUsuarios();
-       // usuarioControlador.agregarUsuario();
-        libroControlador.mostrarLibros();
+
+        //libroControlador.agregarLibros();
+        libroControlador.cambiarEstadoPrestado();
         //libroControlador.editarLibros();
-        libroControlador.eliminarLibros();
+        //libroControlador.eliminarLibros();
+       /* libroControlador.mostrarLibros();
+        libroControlador.cambiarEstadoReservado();
+        libroControlador.mostrarLibros();
+        libroControlador.cambiarEstadoPrestado();
+        libroControlador.mostrarLibros();
+        libroControlador.cambiarEstadoDiponible();
+        libroControlador.mostrarLibros();*/
+
     }
 }

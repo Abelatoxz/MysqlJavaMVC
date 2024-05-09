@@ -101,6 +101,16 @@ public class LibroVista {
         return idsArray;
     }
 
+
+    public int[] obtenerIdEstadoPrestado() {
+        System.out.print("Ingrese la ID del libro que buscas cambiar a prestado: ");
+        int idLibro = scanner.nextInt();
+        System.out.print("Ingrese la ID del Usuario: ");
+        int idUsuario = scanner.nextInt();
+        return new int[]{idLibro,idUsuario};
+    }
+
+
     public void mostrarMensajeError(String mensaje) {
         System.out.println("Error: " + mensaje);
     }

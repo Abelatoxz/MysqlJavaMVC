@@ -12,9 +12,9 @@ public class Usuario {
     private String telefono;
     private String rol;
     private String fechaRegistro;
-
+    private int multa;
     // Constructor
-    public Usuario(int id, String nombre, String apellido, String email, String telefono, String rol, Date fechaRegistro) {
+    public Usuario(int id, String nombre, String apellido, String email, String telefono, String rol, Date fechaRegistro, int multa) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -22,6 +22,7 @@ public class Usuario {
         this.telefono = telefono;
         this.rol = rol;
         this.fechaRegistro = new SimpleDateFormat("yyyy-MM-dd").format(fechaRegistro);
+        this.multa = multa;
     }
 
 
@@ -93,6 +94,7 @@ public class Usuario {
                 ", telefono='" + telefono + '\'' +
                 ", rol='" + rol + '\'' +
                 ", fechaRegistro='" + fechaRegistro + '\'' +
+                ", multas='" + multa + '\'' +
                 '}';
     }
 }
