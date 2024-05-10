@@ -28,6 +28,8 @@ public class Prestamo {
         this.idUsuario = idUsuario;
         this.fechaPrestamo = new SimpleDateFormat("yyyy-MM-dd").format(fechaPrestamo);
         this.fechaPrestamoPrevista = new SimpleDateFormat("yyyy-MM-dd").format(fechaPrestamoPrevista);
+        this.fechaPrestamoReal = null;
+
         this.estado = estado;
     }
     //getters and setters

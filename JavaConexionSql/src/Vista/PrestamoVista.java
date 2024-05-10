@@ -22,6 +22,16 @@ public class PrestamoVista {
             }
         }
     }
+    public int[] obtenerIDsUsuarioLibro() {
+
+        System.out.println("Inserta las IDs");
+        System.out.print("ID Libro");
+        int idLibro = scanner.nextInt();
+        System.out.print("ID Usuario");
+        int idUsuario = scanner.nextInt();
+        int[] IDs = {idUsuario,idLibro};
+        return IDs;
+    }
     public void mostrarMensajeError(String mensaje) {
         System.out.println("Error: " + mensaje);
     }

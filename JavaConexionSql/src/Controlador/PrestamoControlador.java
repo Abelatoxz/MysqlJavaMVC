@@ -23,4 +23,13 @@ public class PrestamoControlador {
             vista.mostrarMensajeError("Error al mostrar los prestamos: " + e.getMessage());
         }
     }
+    public void darDeBajaLibro(){
+        try {
+            int[] IDs = vista.obtenerIDsUsuarioLibro();
+            modelo.insertarPrestamoAlta(IDs);
+            vista.mostrarMensaje("Dar de baja completado");
+        }catch (SQLException e){
+            vista.mostrarMensajeError("Error: " + e.getMessage());
+        }
+    }
 }
