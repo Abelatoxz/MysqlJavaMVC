@@ -8,6 +8,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.JFrame;
+
+
 
 public class LibroVista {
     private final Scanner scanner;
@@ -49,6 +56,10 @@ public class LibroVista {
         }
         return new Libro(0,titulo,autor,ISBN,editorial,fechaPublicacion,categoria,estado);
     }
+
+
+
+
     public Libro obtenerDatosEditarLibro(){
         System.out.println("Mete los datos del libro");
         System.out.print("ID: ");
@@ -110,13 +121,14 @@ public class LibroVista {
         return new int[]{idLibro,idUsuario};
     }
 
-
-    public void mostrarMensajeError(String mensaje) {
-        System.out.println("Error: " + mensaje);
+/*
+  public void mostrarMensajeError(String mensaje) {
+        JOptionPane.showMessageDialog(this, "Error: " + mensaje, "Error", JOptionPane.ERROR_MESSAGE);
     }
+
     public void mostrarMensaje(String mensaje) {
-        System.out.println(mensaje);
+        JOptionPane.showMessageDialog(this, mensaje);
     }
-
+**/
 
 }

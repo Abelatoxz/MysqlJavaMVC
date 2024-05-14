@@ -11,6 +11,7 @@ import Controlador.PrestamoControlador;
 import java.time.LocalDate;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import Vista.LibroVistaGUI;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,9 +21,48 @@ public class Main {
          UsuarioControlador usuarioControlador = new UsuarioControlador(usuarioModelo, usuarioVista);
         // Crear instancias del modelo, la vista y el controlador del libro
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         LibroModelo libroModelo = new LibroModelo();
-        LibroVista libroVista = new LibroVista();
-        LibroControlador libroControlador = new LibroControlador(libroModelo,libroVista);
+        LibroVistaGUI libroVistaGui = new LibroVistaGUI();
+        LibroControlador libroControlador = new LibroControlador(libroModelo,libroVistaGui);
+        libroVistaGui.setVisible(true);
+        
+        if (libroControlador.agregarLibros()) {
+            libroControlador.mostrarLibrosGui();
+        }
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //Crear instancias del modelo, la vista y el controlador de los prestamos
         PrestamoModelo prestamoModelo = new PrestamoModelo();
@@ -30,9 +70,9 @@ public class Main {
         PrestamoControlador prestamoControlador = new PrestamoControlador(prestamoModelo,prestamoVista);
         // Mostrar usuarios
         //libroControlador.cambiarEstadoPrestado();
-        libroControlador.cambiarEstadoPrestado();
+        //libroControlador.cambiarEstadoPrestado();
 
-        prestamoControlador.darDeBajaLibro();
+       // prestamoControlador.darDeBajaLibro();
 
 
     }
