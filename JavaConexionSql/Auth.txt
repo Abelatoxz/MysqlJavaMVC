@@ -1,2 +1,0 @@
-CREATE USER 'bibloteca'@'%' IDENTIFIED BY 'password';
-CREATE USER 'bibloteca'@'localhost' IDENTIFIED BY 'password';
